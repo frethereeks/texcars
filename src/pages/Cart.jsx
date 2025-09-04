@@ -39,10 +39,10 @@ export default function Cart() {
                   </div>
                   <div className="relative space-y-1 flex-1">
                     <InputNumber onChange={(val) => handleQuantityChange(val, el.id)} min={1} value={el.quantity} className='max-w-10 md:max-w-12' />
-                    <button onClick={() => handleRemoveFromCart(el.id)} className="mt-2 text-text text-xs font-medium leading-2 flex items-center gap-2">
+                    <button onClick={() => handleRemoveFromCart(el.id)} className="cursor-pointer mt-2 text-text text-xs font-medium leading-2 flex items-center gap-2">
                       <RiDeleteBin5Line /> Remove
                     </button>
-                    <p className="text-text text-xs font-medium leading-2 flex items-center gap-2">
+                    <p className="cursor-pointer text-text text-xs font-medium leading-2 flex items-center gap-2">
                       <RiHeart3Line /> Save for later
                     </p>
                   </div>

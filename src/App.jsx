@@ -1,5 +1,5 @@
 import React from 'react'
-import { createBrowserRouter, Outlet, RouterProvider } from 'react-router-dom'
+import { createBrowserRouter, Navigate, Outlet, RouterProvider } from 'react-router-dom'
 import { Toaster } from 'react-hot-toast'
 import About from './pages/About'
 import Shop from './pages/Shop'
@@ -11,6 +11,9 @@ import Footer from './components/Footer'
 import Cart from './pages/Cart'
 import Discord from './pages/Discord'
 import { ConfigProvider } from 'antd'
+import AosProvider from './components/AosProvider'
+import Login from './pages/Login'
+import { useSelector } from 'react-redux'
 // data-aos="fade-down" data-aos-delay="500" data-aos-duration="1000"
 export default function App() {
 
@@ -22,6 +25,20 @@ export default function App() {
       </div>
       <Footer />
     </>
+  }
+
+  function ProtectedPagesLayout() {
+    const site = useSelector(state => state.site)
+    if (!site.isLoggedIn) {
+      return <Navigate to="/login" replace />
+    }
+    else {
+      return <>
+        <div className="min-h-[80vh]">
+          <Outlet />
+        </div>
+      </>
+    }
   }
 
   const pageRoutes = createBrowserRouter([
@@ -51,12 +68,22 @@ export default function App() {
           path: "/cart",
           element: <Cart />
         },
+        {
+          path: "/login",
+          element: <Login />
+        }
       ],
       errorElement: <Error />
     },
     {
-      path: "/discord",
-      element: <Discord />
+      path: "/dashboard",
+      element: <ProtectedPagesLayout />,
+      children: [
+        {
+          path: "/dashboard/overview",
+          element: <Discord />
+        }
+      ]
     },
   ])
 
@@ -65,7 +92,9 @@ export default function App() {
     <>
       <Toaster />
       <ConfigProvider>
-        <RouterProvider router={pageRoutes}></RouterProvider>
+        <AosProvider>
+          <RouterProvider router={pageRoutes}></RouterProvider>
+        </AosProvider>
       </ConfigProvider>
     </>
   )

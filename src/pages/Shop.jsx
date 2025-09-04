@@ -6,6 +6,7 @@ import ProductCard from '../components/ProductCard'
 export default function Shop() {
   const [allCars, setAllCars] = useState([])
   const [loading, setLoading] = useState(false)
+  const BASE_URL = import.meta.env.VITE_BASE_URL
 
   const images = Object.values(ASSETS)
 
@@ -13,7 +14,7 @@ export default function Shop() {
     setLoading(true)
     toast.loading("Fetching cars, please wait...", { id: "123",  })
     try {
-      const res = await fetch(`https://688cb598cd9d22dda5ce2f0d.mockapi.io/api/cars`)
+      const res = await fetch(BASE_URL)
       const data = await res.json()
       setAllCars(data)
       toast.dismiss("123")
