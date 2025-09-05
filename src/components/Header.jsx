@@ -33,24 +33,24 @@ export default function Header() {
         <header className='bg-white md:p-2 md:rounded-full fixed top-0 md:top-4 left-0 md:left-1/2 md:-translate-x-1/2 w-full md:container z-50 shadow-lg'>
             <div className="container mx-auto relative flex justify-between md:items-center gap-4 p-4 md:p-0">
                 <Link to="/" className='flex items-center gap-2'>
-                    {/* <div className="h-10 w-10 rounded-full grid place-items-center bg-primary flex-shrink-0">
+                    <div className="h-10 w-10 rounded-full grid place-items-center bg-primary flex-shrink-0">
                         <AiOutlineCar className='text-white text-2xl md:text-3xl flex-shrink-0' />
-                    </div> */}
-                        <div className="h-10 w-10 rounded-full bg-secondary relative">
+                    </div>
+                        {/* <div className="h-10 w-10 rounded-full bg-secondary relative">
                             <div className="h-[85%] w-[85%] rounded-full border-4 border-white absolute right-0 bottom-0 bg-secondary overflow-hidden">
                                 <div className="absolute h-1/2 w-[70%] bg-white rounded-full -rotate-[22deg] top-[0%] left-[60%]"></div>
                             </div>
-                        </div>
+                        </div> */}
                     {/* <figure className="h-10 w-10 grid place-items-center bg-primary rounded-full">
                     </figure> */}
                     <h1 className="text-lg md:text-xl font-bold text-[#e11836]">Texcars</h1>
                 </Link>
-                <nav className={`flex-1 bg-backdrop md:bg-white w-full absolute md:static top-full ${navOpen ? "left-0" : "left-full"} transition-all duration-300 flex flex-col md:flex-row justify-center md:items-center md:gap-2`}>
+                <nav className={`flex-1 bg-backdrop md:bg-white w-full absolute md:static top-full ${navOpen ? "left-0" : "left-[100vw]"} transition-all duration-300 flex flex-col md:flex-row justify-center md:items-center md:gap-2`}>
                     {
                         navLinks.map((link) => (
-                            (link.path === "/contact") ?
-                                <a className={`${link.path === location.pathname ? 'text-white bg-secondary' : 'text-primary hover:text-white hover:bg-secondary'} font-semibold py-1.5 px-4 md:rounded-md`} key={link.id} href={link.path}>{link.name}</a>
-                                :
+                            // (link.path === "/contact") ?
+                            //     <a className={`${link.path === location.pathname ? 'text-white bg-secondary' : 'text-primary hover:text-white hover:bg-secondary'} font-semibold py-1.5 px-4 md:rounded-md`} key={link.id} href={link.path}>{link.name}</a>
+                            //     :
                                 <Link className={`${link.path === location.pathname ? 'text-white bg-secondary' : 'text-primary hover:text-white hover:bg-secondary'} font-semibold py-1.5 px-4 md:rounded-md`} key={link.id} to={link.path}>{link.name}</Link>
                         ))
                     }

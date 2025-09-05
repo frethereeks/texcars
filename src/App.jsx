@@ -1,4 +1,5 @@
 import React from 'react'
+import { Analytics } from '@vercel/analytics/react';
 import { createBrowserRouter, Navigate, Outlet, RouterProvider } from 'react-router-dom'
 import { Toaster } from 'react-hot-toast'
 import About from './pages/About'
@@ -93,7 +94,9 @@ export default function App() {
       <Toaster />
       <ConfigProvider>
         <AosProvider>
-          <RouterProvider router={pageRoutes}></RouterProvider>
+          <RouterProvider router={pageRoutes}>
+            <Analytics />
+          </RouterProvider>
         </AosProvider>
       </ConfigProvider>
     </>
