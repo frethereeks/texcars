@@ -70,7 +70,6 @@ export default function Contact() {
               <Form.Item
                 name={"phone"}
                 label="Phone Number"
-                // rules={[{ len: 14, message: 'Phone Number must be exactly 10 digit' }]}
                 children={
                   <PhoneNumberInput
                     placeholder="Enter Phone Number"

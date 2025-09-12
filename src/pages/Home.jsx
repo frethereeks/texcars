@@ -58,9 +58,6 @@ export default function Home() {
           </aside>
         </div>
       </section>
-      <section className="py-10 md:py-20 lg:py-32 px-4 bg-secondary/10">
-        <div className="container mx-auto flex flex-col md:flex-row-reverse gap-4 md:gap-8">
-          <aside className="flex-1 py-6 sm:py-10 md:py-24 space-y-4">
             {/* <figure className="h-16 w-16 grid place-items-center bg-primary rounded-sm">
               <div className="h-14 w-14 rounded-full bg-secondary relative">
                 <div className="h-[85%] w-[85%] rounded-full border-4 border-primary absolute right-0 bottom-0 bg-secondary overflow-hidden">
@@ -73,6 +70,9 @@ export default function Home() {
                 <div className="absolute h-1/2 w-[70%] bg-white rounded-full -rotate-[22deg] top-[0%] left-[60%]"></div>
               </div>
             </div> */}
+      <section className="py-10 md:py-20 lg:py-32 px-4 bg-secondary/10">
+        <div className="container mx-auto flex flex-col md:flex-row-reverse gap-4 md:gap-8">
+          <aside className="flex-1 py-6 sm:py-10 md:py-24 space-y-4">
             <p data-aos="fade-down" data-aos-delay="500"  className="text-sm md:text-base w-max relative before:absolute before:h-0.5 before:w-12 before:bg-secondary before:left-[120%] before:top-1/2 before:-translate-y-1/2">Our Value </p>
             <h3 data-aos="fade-right" data-aos-delay="1000"  className="text-3xl md:text-4xl text-primary font-serif font-bold">We <span className="text-secondary">consider</span> you our first <span className="text-secondary">priority</span></h3>
             <p data-aos="fade-up" data-aos-delay="1500"  className="text-base md:text-lg text-text opacity-70">We are committed to providing you with the best luxury products and services. Our team is dedicated to ensuring that your experience with us is nothing short of exceptional.</p>
